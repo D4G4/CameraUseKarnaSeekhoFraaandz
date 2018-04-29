@@ -1,0 +1,19 @@
+<!--Specifying available file types -->
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Your file is stored under getExternalFilesDir(). That maps to <external-files-path>, not <files-path>-->
+    <!--<external-files-path name="my_images"-->
+        <!--path="."/>-->
+
+
+    <!--<files-path
+        name="my_images"
+        path="Android/data/com.example.dennis.camerausekarnaseekhofraaandz/files/Pictures" />-->
+    <!--This path corresponds to the path returned by getExternalFilesDir() when called with Environment.DIRECTORY_PICTURES-->
+    
+    <external-files-path
+        name="mediaImages"
+        path="."/>
+
+
+</paths>
