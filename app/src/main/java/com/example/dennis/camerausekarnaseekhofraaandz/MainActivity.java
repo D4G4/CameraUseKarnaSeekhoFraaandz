@@ -1,6 +1,7 @@
 package com.example.dennis.camerausekarnaseekhofraaandz;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -42,6 +43,22 @@ protected void onCreate(Bundle savedInstanceState) {
     ButterKnife.bind(this);
 }
 
+@OnClick(R.id.openCamera)
+public void launchCameraActivity() {
+    if (isCameraAvaialble())
+        startActivity(new Intent(this, CameraActivity.class));
+    else
+        Toast.makeText(this, "The device does not have a camera in it", Toast.LENGTH_SHORT).show();
+}
+
+/**
+ * Check if device has a camera
+ */
+private boolean isCameraAvaialble() {
+    if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA))
+        return true;
+    return false;
+}
 
 @OnClick(R.id.clickPicture)
 public void clickPictureAndDisplayItInImageView() {
