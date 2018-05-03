@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -67,9 +68,7 @@ public void launchCameraActivity() {
  * Check if device has a camera
  */
 private boolean isCameraAvaialble() {
-    if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA))
-        return true;
-    return false;
+    return getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);
 }
 
 @OnClick(R.id.clickPicture)
@@ -169,5 +168,7 @@ private void addPhotoToGallery() {
     mediaScanIntent.setData(contentUri);
     this.sendBroadcast(mediaScanIntent);
 }
+
+
 
 }
